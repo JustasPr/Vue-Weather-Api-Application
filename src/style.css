@@ -1,3 +1,4 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 *{
   padding: 0;
   margin: 0;
@@ -8,8 +9,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,11 +26,15 @@ a:hover {
 }
 
 body {
+  background: linear-gradient(135deg, #56CCF2 0%, #2F80ED 100%);
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
+  z-index: 0;
+  height: 100vh;
 }
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,12 +42,19 @@ body {
   text-align: center;
 }
 
+header{
+  z-index: 1;
+}
 header h1 {
+  color: #fff;
   font-size: 5rem;
   line-height: 6rem;
 }
 header p {
-  color: #9d9d9d;
+  color: #fff;
+}
+main {
+  z-index: 1;
 }
 .place__input {
   margin-top: 30px;
@@ -53,16 +63,86 @@ header p {
 }
 
 .place__input input.place__field {
-      width: 460px;
-    height: 25px;
+  width: 460px;
+  height: 34px;
+  font-size: 14px;
+  text-transform: capitalize;
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border-color 0.3s, box-shadow 0.3s;
   outline: none;
+  background: rgba(255, 255, 255, 0.4); /* Transparent */
+  backdrop-filter: blur(10px);     
+  color: #fff;
 }
 
 .place__input input.place__field:focus {
   border-color: #007BFF; /* Bootstrap blue */
   box-shadow: 0 0 3px #007BFF;
+}
+.weather__box {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.weather-card {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 20px 30px;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #464444;
+  text-align: left;
+  border-left: 5px solid #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.weather-card:hover {
+  scale: 1.02;
+  cursor: pointer;
+}
+
+.weather-card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.weather-card p.condition {
+  margin: 5px 0 5px;
+  color: #7a7a7a;
+}
+
+.temperature {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+.details span {
+  display: flex;
+  /* align-items: center; */
+}
+
+.details span img {
+  margin-right: 5px;
+}
+
+.todaysCard {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.loader {
+  margin-top: 30px;
+}
+.loader i {
+  color: #fff;
+  font-size: 60px;
 }
